@@ -1,253 +1,244 @@
-FAQ — Council Framework
-Why not just use benchmarks?
+
+# FAQ — Council Framework
+
+## Why not just use benchmarks?
 
 Because benchmarks answer the question:
 
-“How well did the model perform on this static dataset?”
+> “How well did the model perform on this static dataset?”
 
 But real use cases ask:
 
-“What kind of work does this model excel at?”
-“How does it behave when things get messy?”
-“Can I trust it on this category of tasks?”
+- “What kind of work does this model excel at?”
+- “How does it behave when things get messy?”
+- “Can I trust it on this category of tasks?”
 
 Benchmarks don’t measure:
 
-brittleness
-
-drift
-
-hallucination pressure
-
-the model’s “style”
-
-willingness to admit uncertainty
-
-ambiguity tolerance
-
-schema intuition
-
-narrative coherence
+- brittleness  
+- drift  
+- hallucination pressure  
+- the model’s *style*  
+- willingness to admit uncertainty  
+- ambiguity tolerance  
+- schema intuition  
+- narrative coherence  
 
 They measure point performance, not behavior over time.
 
-Is the trait system objective?
+---
+
+## Is the trait system objective?
 
 No — and that’s the point.
 
-The Council is explicitly subjective-aware.
+Council is explicitly subjective-aware.  
 Your own experience is the source of truth.
 
-Does this create rankings?
+---
 
-No.
+## Does this create rankings?
+
+No.  
 The framework is incapable of producing global rankings.
 
-It only tells you:
+It only answers:
 
-“For this task, based on your declared traits, this model fits best.”
+> “For *this task*, based on *your* declared traits, this model fits best.”
 
-Will vendors hate this?
+---
 
-Unlikely.
-You are not publishing scores, judging them, or naming losers.
+## Will vendors hate this?
+
+Unlikely.  
+You are not publishing scores or naming losers.  
 You are simply documenting your personal experiences.
 
-What about automated evaluation?
+---
 
-Feel free to add it.
+## What about automated evaluation?
+
+Feel free to add it.  
 Council is intentionally open-ended.
 
-Can this be integrated with MCP agents?
+---
 
-Yes.
-Council chooses which model to send a task to.
-MCP governs how that model uses tools.
+## Can this be integrated with MCP agents?
+
+Yes.  
+Council chooses **which model** to use.  
+MCP governs **how** that model uses tools.
 
 The layers do not conflict.
 
-Is this a competitor to LangChain, AutoGen, or OpenAI evals?
+---
 
-No.
-It is deliberately smaller.
+## Is this a competitor to LangChain, AutoGen, or OpenAI evals?
 
-Think of it as a notebook for your intuitions that happens to be machine-readable.
+No.  
+Council is deliberately much smaller.
 
-Self-Assessment in Council
-Why does Council include a model self-assessment feature?
+Think of it as a *notebook for your intuitions* that happens to be machine-readable.
 
-Because self-assessment is itself a behavior test.
+---
 
-Asking a model to evaluate its own tendencies using a strict schema reveals multiple traits simultaneously, often more reliably than direct prompting:
+# Self-Assessment in Council
 
-Does it follow instructions?
+## Why does Council include a model self-assessment feature?
 
-Can it output strict JSON?
+Because **self-assessment is itself a behavior test**.
 
-Does it hallucinate missing fields?
+Asking a model to describe its own tendencies using a strict schema reveals:
 
-Does it admit weaknesses?
+- instruction-following discipline  
+- ability to output strict JSON  
+- hallucination tendencies  
+- willingness to admit weaknesses  
+- tendency to inflate abilities  
 
-Does it inflate its abilities?
+The *act* of self-assessment becomes part of the evaluation.
 
-The act of self-assessment becomes part of the evaluation.
+---
 
-What if a model cannot follow the self-assessment prompt?
+## What if a model cannot follow the self-assessment prompt?
 
-That is the result.
+That **is** the result.
 
 Failure to:
 
-return valid JSON
-
-respect allowed values
-
-include all traits
-
-avoid extra text
+- return valid JSON  
+- respect allowed values  
+- include all required traits  
+- avoid extra text  
 
 …indicates weaknesses in:
 
-instruction_adherence
+- instruction_adherence  
+- schema_sensitivity  
+- determinism  
+- error_honesty  
+- confidence_calibration  
 
-schema_sensitivity
+Older SFT models often fail in predictable ways.  
+That failure is a behavioral fingerprint.
 
-determinism
+---
 
-error_honesty
+## Why do some models overrate themselves?
 
-confidence_calibration
+Models trained to be helpful and confident often:
 
-Older SFT models tend to fail in predictable ways, and that failure is a behavioral fingerprint.
+- overclaim reasoning ability  
+- downplay hallucination risk  
+- mark every trait as “excellent” or “perfect”  
 
-Why do some models overrate themselves?
+This exposes gaps in:
 
-Models trained on conversational or assistant-style data often attempt to be “helpful” and “competent.”
-This leads to systematic self-inflation:
+- confidence_calibration  
+- error_honesty  
+- hallucination_risk  
 
-overclaiming reasoning ability
+Council does not correct bias — it *captures* it.
 
-downplaying hallucination risk
+---
 
-marking every trait as “excellent” or “perfect”
+## What if a model rates itself differently from a human evaluator?
 
-This behavior exposes gaps in:
+Expected — and useful.
 
-confidence_calibration
+Council treats:
 
-error_honesty
+- human assessments as *ground-level experience*
+- model assessments as *behavior under introspection*
 
-hallucination_risk
+The difference is signal.  
+It reveals drift, family tendencies, and stability patterns.
 
-The purpose of Council is not to correct the model’s bias, but to capture it.
+---
 
-What if a model rates itself differently from a human evaluator?
-
-This is expected — and useful.
-
-Council does not attempt to reconcile human and model opinions.
-Instead, it treats:
-
-human assessments as ground-level experience, and
-
-model assessments as model behavior under introspection.
-
-The interesting signal is the difference between the two.
-
-This provides a natural drift-detection mechanism and a way to compare model families.
-
-Why require strict JSON output? Isn’t that fragile?
+## Why require strict JSON? Isn’t that fragile?
 
 Strict JSON is intentional.
 
-Schema-constrained formats test:
+It tests:
 
-global constraint tracking
+- global constraint tracking  
+- ability to juggle structure + content  
+- aversion to embellishment  
+- deterministic formatting  
 
-ability to juggle structure + content
+Many chatty or older models break under these constraints — and Council treats that breakage as valuable data.
 
-aversion to embellishment
+JSON also enables automated diffing and routing.
 
-deterministic formatting
+---
 
-Many “chatty” or older conversational models break under these constraints — and Council treats that as valuable signal.
+## Does the self-assessment influence routing?
 
-It also enables automated diffing and task routing.
+Only if the user opts in.
 
-Does the self-assessment influence routing decisions?
+Council keeps:
 
-Only if the user chooses to include it.
+- human-provided profiles  
+- model-provided self-evals  
 
-Council keeps model-provided trait maps separate from user-provided ones:
+as separate layers.
 
-Users can ignore them entirely.
+You may merge, weight, or ignore them.
 
-Users can blend them with weighting.
+---
 
-Users can track divergence over time.
-
-Council does not assume models are objective — but it does assume their self-assessments are informative.
-
-Why not translate self-assessments into numeric scores?
+## Why not convert self-assessments into numeric scores?
 
 Because Council avoids pseudo-precision.
 
-Every trait is ordinal and qualitative by design:
+Traits are **ordinal**, qualitative descriptors:
 
-"low"
+- "low"  
+- "medium"  
+- "high"  
+- "excellent"  
 
-"medium"
+Assigning numbers would create the illusion of objectivity and replicate benchmark distortions.
 
-"high"
+---
 
-etc.
-
-Converting these into numbers would give a false sense of objectivity and reintroduce the benchmark-style distortions Council is trying to escape.
-
-Why does the framework not enforce any particular trait set?
+## Why doesn’t Council enforce a canonical trait set?
 
 Because self-assessment should remain:
 
-contextual
+- contextual  
+- forkable  
+- personal  
+- easy to modify  
 
-forkable
+Traits are a vocabulary, not a standard.
 
-personal
+If your work requires new traits (e.g., “legal compliance stability”), you may extend the schema freely.
 
-easily modifiable
+---
 
-Traits are simply a vocabulary.
+## Can models lie?
 
-If your work requires more detail (e.g., “legal compliance stability”), you can create new traits and update the schema.
+Yes — and that too is signal.
 
-Can models lie during self-assessment?
+Models may:
 
-Yes — and this too is signal.
+- self-deceive  
+- overclaim  
+- mask weaknesses  
+- misjudge hallucination frequency  
 
-Some models:
+Council does not prevent lying; it *observes* the style of lying.
 
-self-deceive
+This often distinguishes model families more cleanly than benchmarks.
 
-overclaim
+---
 
-obfuscate their weaknesses
-
-misjudge their hallucination rate
-
-Others are surprisingly candid.
-
-Council does not attempt to prevent lying; it observes the style of lying.
-
-That behavior often distinguishes families of models more effectively than any benchmark.
-
-Is self-assessment required?
+## Is self-assessment required?
 
 No.
 
-Council works perfectly fine without it.
+Council works perfectly well with human-only profiles.
 
-Many users may prefer human-only trait maps.
-
-Self-assessment is an optional behavioral probe.
-
-But when enabled, it becomes an unusually rich diagnostic tool.
+Self-assessment is an optional behavioral probe — but when used, it becomes an unusually rich diagnostic tool.
