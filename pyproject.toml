@@ -1,0 +1,9 @@
+[project]
+name = "council-framework"
+version = "0.3.0"
+description = "Local, subjective task-to-model routing with behavioral traits and CLI"
+authors = [{name = "Council Maintainers"}]
+requires-python = ">=3.10"
+
+[project.scripts]
+council = "council_cli.main:cli"
