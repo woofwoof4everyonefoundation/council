@@ -1,0 +1,16 @@
+- id: investigative_summarization
+  description: >
+    Produce a factual, source-faithful summary from multiple noisy documents.
+  traits_required:
+    summarization_fidelity: high
+    hallucination_risk: low
+    ambiguity_handling: medium
+    context_compression: high
+
+- id: schema_reasoning
+  description: >
+    Understand, compare, or transform structured data formats such as JSON, XML, or SQL schemas.
+  traits_required:
+    schema_sensitivity: high
+    code_reasoning: medium
+    instruction_adherence: high

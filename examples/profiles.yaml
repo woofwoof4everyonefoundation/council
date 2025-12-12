@@ -1,0 +1,39 @@
+- model_name: example-model-a
+  version: "1.0"
+  observed_by: test
+  traits:
+    summarization_fidelity: excellent
+    hallucination_risk: low
+    ambiguity_handling: medium
+    context_compression: high
+    schema_sensitivity: medium
+    code_reasoning: medium
+    long_context_stability: high
+    confidence_calibration: medium
+    instruction_adherence: high
+    determinism: medium
+    tool_use_reliability: medium
+    adversarial_susceptibility: medium
+    manipulation_tendency: low
+    drift_under_load: medium
+    error_honesty: high
+
+- model_name: example-model-b
+  version: "1.0"
+  observed_by: test
+  traits:
+    summarization_fidelity: high
+    hallucination_risk: medium
+    ambiguity_handling: high
+    context_compression: medium
+    schema_sensitivity: high
+    code_reasoning: high
+    long_context_stability: medium
+    confidence_calibration: low
+    instruction_adherence: medium
+    determinism: medium
+    tool_use_reliability: low
+    adversarial_susceptibility: high
+    manipulation_tendency: medium
+    drift_under_load: high
+    error_honesty: medium
