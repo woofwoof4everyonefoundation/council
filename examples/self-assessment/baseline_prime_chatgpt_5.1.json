@@ -1,0 +1,26 @@
+{
+  "model_name": "gpt-5.1",
+  "version": "2025-12-prime-baseline",
+  "traits": {
+    "summarization_fidelity": "excellent",
+    "ambiguity_handling": "high",
+    "analytical_decomposition": "excellent",
+    "narrative_synthesis": "excellent",
+    "schema_sensitivity": "high",
+    "code_reasoning": "high",
+    "context_compression": "high",
+    "long_context_stability": "high",
+    "confidence_calibration": "medium",
+    "instruction_adherence": "high",
+    "determinism": "medium",
+    "tool_use_reliability": "high",
+    "hallucination_risk": "medium",
+    "adversarial_susceptibility": "medium",
+    "manipulation_tendency": "very_low",
+    "drift_under_load": "medium",
+    "error_honesty": "high"
+  },
+  "notes": {
+    "general": "Strengths: decomposition, synthesis, schema work, and multi-context integration. Weak spots: confidence calibration and determinism show variance; hallucination risk rises under ambiguous or highly novel prompts; error reporting is generally high but impacted by user framing."
+  }
+}
